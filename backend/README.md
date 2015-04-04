@@ -1,28 +1,23 @@
-## Python Flask Skeleton for Google App Engine
-
-A skeleton for building Python applications on Google App Engine with the
-[Flask micro framework](http://flask.pocoo.org).
-
-See our other [Google Cloud Platform github
-repos](https://github.com/GoogleCloudPlatform) for sample applications and
-scaffolding for other python frameworks and use cases.
+## motif/backend
 
 ## Run Locally
 1. Install the [App Engine Python SDK](https://developers.google.com/appengine/downloads).
 See the README file for directions. You'll need python 2.7 and [pip 1.4 or later](http://www.pip-installer.org/en/latest/installing.html) installed too.
 
-2. Clone this repo with
+2. Clone the motif repo with
 
    ```
-   git clone https://github.com/GoogleCloudPlatform/appengine-python-flask-skeleton.git
+   git clone git@github.com:srcreigh/motif.git
    ```
+
 3. Install dependencies in the project's lib directory.
    Note: App Engine can only import libraries from inside your project directory.
 
    ```
-   cd appengine-python-flask-skeleton
-   pip install -r requirements.txt -t lib
+   cd backend
+   ./setup.sh
    ```
+
 4. Run this project locally from the command line:
 
    ```
