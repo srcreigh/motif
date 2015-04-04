@@ -12,9 +12,13 @@ h4 {
   width: 32.5px;
   height: 32.5px;
 }
+#newlogo{
+  width: 150px;
+  height: 150px;
+}
 #appstore{
   width: 150px;
-  length: 300px;
+  length: 150px;
 }
 .sidebar {
     position: fixed;
@@ -31,6 +35,9 @@ h4 {
   }
 .container {
   width: 1010px;
+}
+#name{
+font-size:400%;
 }
 .content {
   padding-top: 15px;
