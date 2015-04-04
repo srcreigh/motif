@@ -10,7 +10,11 @@ h4 {
 }
 #logo {
   width: 50px;
-  height: 50px;
+  height: 52px;
+}
+#appstore{
+  width: 250px;
+  length: 500px;
 }
 .content {
   padding-top: 15px;
