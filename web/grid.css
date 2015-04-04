@@ -18,7 +18,7 @@ h4 {
 }
 .sidebar {
     position: fixed;
-    top: 51px;
+    top: 0px;
     bottom: 0;
     left: 0;
     z-index: 1000;
