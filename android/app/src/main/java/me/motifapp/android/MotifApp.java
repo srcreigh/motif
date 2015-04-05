@@ -5,7 +5,6 @@ import android.content.Context;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.android.volley.RequestQueue;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParsePush;
@@ -13,8 +12,6 @@ import com.parse.SaveCallback;
 
 public class MotifApp extends Application {
     public static final String IS_AUTHENTICATED = "is_authenticated";
-
-    private static RequestQueue sRequestQueue;
 
     @Override
     public void onCreate() {
