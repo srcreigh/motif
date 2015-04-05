@@ -20,14 +20,18 @@ PODS:
   - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AFOAuth2Manager (2.2.0):
+    - AFNetworking/NSURLConnection (~> 2.2)
   - Bolts (1.1.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.2)
+  - AFOAuth2Manager (~> 2.2.0)
   - Bolts (~> 1.1.4)
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  AFOAuth2Manager: 952eb62e8fd8022971e64c6e8fe28b9e999224af
   Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
 
 COCOAPODS: 0.36.3

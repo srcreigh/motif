@@ -6,14 +6,12 @@
 //  Copyright (c) 2013 Context.IO. All rights reserved.
 //
 
-#import "CIOAuthViewController.h"
+#import "MFAuthViewController.h"
 
 #import "MFAPIClient.h"
+#import "MFSignInViewController.h"
 
-static NSString *const MFConsumerKey = @"uqt7o22b";
-static NSString *const MFConsumerSecret = @"k948tJki1A1pvAn0";
-
-@interface CIOAuthViewController () <MFAPIClientDelegate>
+@interface MFAuthViewController () <MFAPIClientDelegate>
 
 @property (nonatomic, strong) MFAPIClient *apiClient;
 
@@ -28,7 +26,7 @@ static NSString *const MFConsumerSecret = @"k948tJki1A1pvAn0";
 
 @end
 
-@implementation CIOAuthViewController
+@implementation MFAuthViewController
 
 - (id)init {
     
@@ -48,7 +46,7 @@ static NSString *const MFConsumerSecret = @"k948tJki1A1pvAn0";
 }
 
 - (void)initialize {
-    _apiClient = [[MFAPIClient alloc] init];
+    _apiClient = [MFAPIClient sharedClient];
     _apiClient.delegate = self;
 }
 
@@ -63,7 +61,7 @@ static NSString *const MFConsumerSecret = @"k948tJki1A1pvAn0";
     self.instructionsTextView.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:15.0f];
     self.instructionsTextView.textColor = [UIColor colorWithWhite:(103.0f/255.0f) alpha:1.0f];
     self.instructionsTextView.textAlignment = NSTextAlignmentCenter;
-    self.instructionsTextView.text = NSLocalizedString(@"Sign in to connect your email account with Message Finder.", @"");
+    self.instructionsTextView.text = NSLocalizedString(@"Sign in to connect your email account with Motif.", @"");
     [self.view addSubview:self.instructionsTextView];
     
     UIImage *providerButtonBgImage = [[UIImage imageNamed:@"button-provider-bg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(76.0f, 7.0f, 76.0f, 7.0f)];
@@ -71,29 +69,26 @@ static NSString *const MFConsumerSecret = @"k948tJki1A1pvAn0";
     self.gmailButton.titleLabel.text = @"";
     self.gmailButton.tag = CIOEmailProviderTypeGmail;
     [self.gmailButton setBackgroundImage:providerButtonBgImage forState:UIControlStateNormal];
-    [self.gmailButton setImage:[UIImage imageNamed:@"button-provider-gmail.png"] forState:UIControlStateNormal];
+//    [self.gmailButton setImage:[UIImage imageNamed:@"button-provider-gmail.png"] forState:UIControlStateNormal];
     [self.view addSubview:self.gmailButton];
     
-    self.yahooButton.titleLabel.text = @"";
+    [self.yahooButton setTitle:@"Sign In" forState:UIControlStateNormal];
+    [self.yahooButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.yahooButton.tag = CIOEmailProviderTypeYahoo;
     [self.yahooButton setBackgroundImage:providerButtonBgImage forState:UIControlStateNormal];
-    [self.yahooButton setImage:[UIImage imageNamed:@"button-provider-yahoo.png"] forState:UIControlStateNormal];
+//    [self.yahooButton setImage:[UIImage imageNamed:@"button-provider-yahoo.png"] forState:UIControlStateNormal];
+    [self.yahooButton setBackgroundImage:[UIImage imageNamed:@"PBOrangeButton"] forState:UIControlStateNormal];
     [self.view addSubview:self.yahooButton];
     
     self.aolButton.titleLabel.text = @"";
     self.aolButton.tag = CIOEmailProviderTypeAOL;
     [self.aolButton setBackgroundImage:providerButtonBgImage forState:UIControlStateNormal];
-    [self.aolButton setImage:[UIImage imageNamed:@"button-provider-aol.png"] forState:UIControlStateNormal];
+//    [self.aolButton setImage:[UIImage imageNamed:@"button-provider-aol.png"] forState:UIControlStateNormal];
     [self.view addSubview:self.aolButton];
 }
 
 
-#pragma mark Actions
-
-- (void)cancelButtonPressed {
-    [self.delegate userCancelledLogin];
-}
-
+#pragma mark - Button callBacks
 
 - (IBAction)hostButtonPressed:(id)sender {
     
@@ -102,6 +97,16 @@ static NSString *const MFConsumerSecret = @"k948tJki1A1pvAn0";
     
     [self.apiClient registerNewUserAndAccount];
 
+}
+
+#pragma mark - 
+
+- (void)apiClient:(MFAPIClient *)apiClient registerCompletedWithSuccess:(BOOL)success redirectURL:(NSURL *)url error:(NSError *)error {
+    if (success) {
+        [[UIApplication sharedApplication] openURL:url];
+    } else {
+        NSLog(@"Failed");
+    }
 }
 
 @end

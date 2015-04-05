@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 
 #import <Parse/Parse.h>
-#import "CIOAuthViewController.h"
+#import "MFAuthViewController.h"
+#import "MFAPIClient.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    CIOAuthViewController *authViewController = (CIOAuthViewController *)[storyboard instantiateInitialViewController];
+    MFAuthViewController *authViewController = (MFAuthViewController *)[storyboard instantiateInitialViewController];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:authViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -41,6 +42,13 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    
+    // Push Notification Handling
+    NSDictionary *remoteNotificationDictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (remoteNotificationDictionary) {
+        [self handleRemoteNotificationWithDictionary:remoteNotificationDictionary];
+    }
+    
     return YES;
 }
 
@@ -55,7 +63,50 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
     
+    [self handleRemoteNotificationWithDictionary:userInfo];
 }
+
+
+- (void)handleRemoteNotificationWithDictionary:(NSDictionary *)userInfo {
+    NSLog(@"userInfo: %@", userInfo);
+    NSDictionary *aps = [userInfo objectForKey:@"aps"];
+    if (!userInfo || ![aps isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    
+    id alertContent = [aps objectForKey:@"alert"];
+    
+    if ([alertContent isKindOfClass:[NSString class]]) {
+        [self openURLWithString:alertContent];
+    } else if ([alertContent isKindOfClass:[NSDictionary class]]) {
+        NSString *body = [(NSDictionary *)alertContent objectForKey:@"body"];
+        [self openURLWithString:body];
+    }
+    
+    
+    id link = [userInfo objectForKey:@"link"];
+    if (link && [link isKindOfClass:[NSString class]]) {
+        [self openURLWithString:(NSString *)link];
+    }
+
+}
+
+
+- (void)openURLWithString:(NSString *)string {
+    NSURL *linkURL = [NSURL URLWithString:string];
+    if (linkURL) {
+        [[UIApplication sharedApplication] openURL:linkURL];
+    }
+}
+
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    NSLog(@"url: %@", url);
+    
+    return YES;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

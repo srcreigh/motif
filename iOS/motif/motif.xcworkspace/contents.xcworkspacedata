@@ -5,6 +5,9 @@
       location = "group:motif.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:MPOAuth-master/MPOAuth.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

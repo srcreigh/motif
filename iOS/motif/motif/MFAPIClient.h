@@ -22,16 +22,18 @@ typedef enum {
 
 @property (nonatomic, weak) id<MFAPIClientDelegate> delegate;
 
+@property (nonatomic, strong) NSString *tokenKey;
+
++ (instancetype)sharedClient;
 - (void)registerNewUserAndAccount;
 
 @end
 
 
 
+
 @protocol MFAPIClientDelegate <NSObject>
 
-
-@optional
-- (void)apiClient:(MFAPIClient *)apiClient registerCompletedWithSuccess:(BOOL)success responseObject:(id)responseObject error:(NSError *)error;
+- (void)apiClient:(MFAPIClient *)apiClient registerCompletedWithSuccess:(BOOL)success redirectURL:(NSURL *)url error:(NSError *)error;
 
 @end
