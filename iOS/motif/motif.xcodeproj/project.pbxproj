@@ -31,6 +31,8 @@
 		AA89FB781AD015AE00D550C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89FB771AD015AE00D550C1 /* Accounts.framework */; };
 		AAF76C111AD0994700DFA033 /* CIOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF76C101AD0994700DFA033 /* CIOAuthViewController.m */; };
 		AAF76C141AD0AD6800DFA033 /* MFAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF76C131AD0AD6800DFA033 /* MFAPIClient.m */; };
+		AAF76C621AD102D500DFA033 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF76C611AD102D500DFA033 /* libxml2.dylib */; };
+		AAF76C791AD119BB00DFA033 /* libMPOAuthMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF76C781AD119BB00DFA033 /* libMPOAuthMobile.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,12 @@
 		AAF76C101AD0994700DFA033 /* CIOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIOAuthViewController.m; sourceTree = "<group>"; };
 		AAF76C121AD0AD6800DFA033 /* MFAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFAPIClient.h; sourceTree = "<group>"; };
 		AAF76C131AD0AD6800DFA033 /* MFAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFAPIClient.m; sourceTree = "<group>"; };
+		AAF76C181AD0FD7000DFA033 /* MPOAuthMobile.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = MPOAuthMobile.app; path = "../../../../Library/Developer/Xcode/DerivedData/MPOAuth-ggniikqbndxfxgauzzeorpyhfbeh/Build/Products/Debug-iphoneos/MPOAuthMobile.app"; sourceTree = "<group>"; };
+		AAF76C1A1AD0FE1400DFA033 /* libMPOAuth_s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMPOAuth_s.a; path = "../../../../Library/Developer/Xcode/DerivedData/MPOAuth-ggniikqbndxfxgauzzeorpyhfbeh/Build/Products/Debug/libMPOAuth_s.a"; sourceTree = "<group>"; };
+		AAF76C611AD102D500DFA033 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		AAF76C6B1AD1124600DFA033 /* libLROAuth2Client-Device.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libLROAuth2Client-Device.a"; path = "../../../../Downloads/LROAuth2Client-master/build/Debug-iphoneos/libLROAuth2Client-Device.a"; sourceTree = "<group>"; };
+		AAF76C761AD117B500DFA033 /* libMPOAuth_s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMPOAuth_s.a; path = "MPOAuth-master/build/Debug/libMPOAuth_s.a"; sourceTree = "<group>"; };
+		AAF76C781AD119BB00DFA033 /* libMPOAuthMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMPOAuthMobile.a; path = "MPOAuth-master/build/Debug-iphoneos/libMPOAuthMobile.a"; sourceTree = "<group>"; };
 		AE70CFF0B57293A32C57C38A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE678E0B15B1985857D79D70 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAF76C791AD119BB00DFA033 /* libMPOAuthMobile.a in Frameworks */,
+				AAF76C621AD102D500DFA033 /* libxml2.dylib in Frameworks */,
 				AA89FB781AD015AE00D550C1 /* Accounts.framework in Frameworks */,
 				AA89FB761AD015A900D550C1 /* Social.framework in Frameworks */,
 				AA8444821ACFFEF5004F0D0E /* libsqlite3.dylib in Frameworks */,
@@ -162,10 +172,10 @@
 		AA8444421ACFED89004F0D0E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AA84446B1ACFFE0F004F0D0E /* Parse.framework */,
 				AA8444431ACFED89004F0D0E /* Info.plist */,
 				AA8444811ACFFEF5004F0D0E /* libsqlite3.dylib */,
 				AA84447F1ACFFEE9004F0D0E /* libz.dylib */,
+				AA84446B1ACFFE0F004F0D0E /* Parse.framework */,
 				AA84447D1ACFFE98004F0D0E /* SystemConfiguration.framework */,
 				AA84447B1ACFFE8C004F0D0E /* StoreKit.framework */,
 				AA8444791ACFFE84004F0D0E /* Security.framework */,
@@ -200,6 +210,12 @@
 		AF418D680AAD2987F13237C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AAF76C781AD119BB00DFA033 /* libMPOAuthMobile.a */,
+				AAF76C761AD117B500DFA033 /* libMPOAuth_s.a */,
+				AAF76C6B1AD1124600DFA033 /* libLROAuth2Client-Device.a */,
+				AAF76C611AD102D500DFA033 /* libxml2.dylib */,
+				AAF76C1A1AD0FE1400DFA033 /* libMPOAuth_s.a */,
+				AAF76C181AD0FD7000DFA033 /* MPOAuthMobile.app */,
 				AA89FB771AD015AE00D550C1 /* Accounts.framework */,
 				AA89FB751AD015A900D550C1 /* Social.framework */,
 				AE70CFF0B57293A32C57C38A /* libPods.a */,
@@ -477,8 +493,24 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/motif",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AFOAuth2Manager\"",
+					"${PROJECT_DIR}/MPOAuth-master/Source/Framework",
+					"\"${PODS_ROOT}/Headers/Public/Bolts\"",
+				);
 				INFOPLIST_FILE = motif/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/MPOAuth-ggniikqbndxfxgauzzeorpyhfbeh/Build/Products/Debug",
+					"$(PROJECT_DIR)/motif",
+					"/Users/Main/Downloads/LROAuth2Client-master/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/MPOAuth-master/build/Debug",
+					"$(PROJECT_DIR)/MPOAuth-master/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -493,8 +525,24 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/motif",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AFOAuth2Manager\"",
+					"${PROJECT_DIR}/MPOAuth-master/Source/Framework",
+					"\"${PODS_ROOT}/Headers/Public/Bolts\"",
+				);
 				INFOPLIST_FILE = motif/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/MPOAuth-ggniikqbndxfxgauzzeorpyhfbeh/Build/Products/Debug",
+					"$(PROJECT_DIR)/motif",
+					"/Users/Main/Downloads/LROAuth2Client-master/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/MPOAuth-master/build/Debug",
+					"$(PROJECT_DIR)/MPOAuth-master/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

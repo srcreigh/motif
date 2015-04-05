@@ -10,8 +10,24 @@
 
 #import <AFNetworking/AFNetworking.h>
 
-static NSString *const MFNewUserAndAccountPOSTURL = @"https://api.context.io/lite/connect_tokens";
-static NSString *const MFOAuthProvidersPOSTURL = @"https://api.context.io/2.0/oauth_providers";
+#import <MPOAuth.h>
+
+
+static NSString *const MFParamConsumerKey = @"consumer_key";
+static NSString *const MFParamConsumerSecret = @"consumer_secret";
+static NSString *const MFParamCallbackUrl = @"callback_url";
+
+static NSString *const MFConsumerKey = @"uqt7o22b";
+static NSString *const MFConsumerSecret = @"k948tJki1A1pvAn0";
+
+static NSString *const MFUsername = @"fengsite@hotmail.com";
+static NSString *const MFPassword = @"Site940909";
+
+static NSString *const MFBaseURL = @"https://api.context.io";
+static NSString *const MFNewUserAndAccountPOSTURL = @"/lite/connect_tokens";
+static NSString *const MFOAuthProvidersPOSTURL = @"/2.0/oauth_providers";
+
+static NSString *const MFCredentialIdentifier = @"MFCredentialIdentifier";
 
 @interface MFAPIClient()
 
@@ -34,35 +50,32 @@ static NSString *const MFOAuthProvidersPOSTURL = @"https://api.context.io/2.0/oa
 
 
 - (void)registerNewUserAndAccount {
-    [self setupOAuthProvider];
     
-    NSDictionary *parameters = @{@"callback_url": @"www.google.com"};
-    [self.manager POST:MFNewUserAndAccountPOSTURL parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        
-        NSLog(@"success");
-        NSLog(@"response: %@", responseObject);
-        
-        if ([self.delegate respondsToSelector:@selector(apiClient:registerCompletedWithSuccess:responseObject:error:)]) {
-            [self.delegate apiClient:self registerCompletedWithSuccess:YES responseObject:responseObject error:nil];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@"failed");
-        
-        if ([self.delegate respondsToSelector:@selector(apiClient:registerCompletedWithSuccess:responseObject:error:)]) {
-            [self.delegate apiClient:self registerCompletedWithSuccess:NO responseObject:nil error:error];
-        }
-    }];
+    NSDictionary *credentials = @{kMPOAuthCredentialConsumerKey:MFConsumerKey,
+                                  kMPOAuthCredentialConsumerSecret:MFConsumerSecret
+                                  };
+    
+    NSURL *newAccountURL = [NSURL URLWithString:MFNewUserAndAccountPOSTURL];
+    NSURL *baseURL = [NSURL URLWithString:MFBaseURL];
+    
+    MPOAuthAPI *oauthAPI = [[MPOAuthAPI alloc] initWithCredentials:credentials
+                                      authenticationURL:newAccountURL
+                                             andBaseURL:baseURL];
+    
+    NSDictionary *connectTokenParam = @{MFParamCallbackUrl: @"motif://"};
+    NSArray *parameters = @[connectTokenParam];
+    
+    [oauthAPI performPOSTMethod:MFNewUserAndAccountPOSTURL atURL:baseURL withParameters:parameters withTarget:oauthAPI andAction:@selector(postMethodPerformed:receivingData:)];
+    
     
 }
 
 
-
-
-
-
-
-
+- (void)postMethodPerformed:(MPOAuthAPIRequestLoader *)loader receivingData:(NSData *)data {
+    
+    NSLog(@"performed: %@", loader);
+    
+}
 
 
 

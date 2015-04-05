@@ -10,9 +10,6 @@
 
 #import "MFAPIClient.h"
 
-static NSString *const MFConsumerKey = @"uqt7o22b";
-static NSString *const MFConsumerSecret = @"k948tJki1A1pvAn0";
-
 @interface CIOAuthViewController () <MFAPIClientDelegate>
 
 @property (nonatomic, strong) MFAPIClient *apiClient;
