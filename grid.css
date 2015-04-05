@@ -41,7 +41,9 @@ h4 {
   width: 1010px;
 }
 #name{
-font-size:400%;
+  font-size:400%;
+  color: blue;
+  padding-right: 10px;
 }
 .content {
   padding-top: 15px;
