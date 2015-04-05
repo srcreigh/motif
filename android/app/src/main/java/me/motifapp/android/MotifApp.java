@@ -1,14 +1,21 @@
 package me.motifapp.android;
 
 import android.app.Application;
+import android.content.Context;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.android.volley.RequestQueue;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParsePush;
 import com.parse.SaveCallback;
 
 public class MotifApp extends Application {
+    public static final String IS_AUTHENTICATED = "is_authenticated";
+
+    private static RequestQueue sRequestQueue;
+
     @Override
     public void onCreate() {
         initParse();
@@ -28,5 +35,17 @@ public class MotifApp extends Application {
                 }
             }
         });
+    }
+
+    public static boolean isAuthenticated(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(IS_AUTHENTICATED, false);
+    }
+
+    public static void setIsAuthenticated(Context context, boolean isAuthenticated) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putBoolean(IS_AUTHENTICATED, isAuthenticated)
+                .apply();
     }
 }
