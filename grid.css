@@ -64,6 +64,7 @@ font-size:400%;
   border-radius: 20px;
 }
 #mce-EMAIL{
+  border: 5px solid #4169E1;
   border:5px solid rgba(65,105,225,1);
 }
 .btn-primary{
