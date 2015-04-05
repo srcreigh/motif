@@ -80,7 +80,7 @@
 /**
  The acceptable MIME types for responses. When non-`nil`, responses with a `Content-Type` with MIME types that do not intersect with the set will result in an error during validation.
  */
-@property (nonatomic, copy) NSSet *acceptableContentTypes;
+@property (nonatomic, copy) NSArray *acceptableContentTypes;
 
 /**
  Validates the specified response and data.

@@ -6,16 +6,16 @@
 //  Copyright (c) 2015 Si Te Feng. All rights reserved.
 //
 
-#import "MFSignInViewController.h"
+#import "MFWebViewController.h"
 
-@interface MFSignInViewController ()
+@interface MFWebViewController ()
 
 @property (nonatomic, strong) NSURL *url;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
-@implementation MFSignInViewController
+@implementation MFWebViewController
 
 - (instancetype)initWithURL:(NSURL *)url {
     if (self = [super init]) {

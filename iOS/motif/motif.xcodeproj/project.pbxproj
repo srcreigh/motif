@@ -36,8 +36,10 @@
 		AAF76C7C1AD14A0300DFA033 /* TDOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF76C7B1AD14A0300DFA033 /* TDOAuth.m */; };
 		AAF76C811AD151D800DFA033 /* OMGUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF76C7F1AD151D800DFA033 /* OMGUserAgent.m */; };
 		AAF76C821AD151D800DFA033 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = AAF76C801AD151D800DFA033 /* README.markdown */; };
-		AAF76C951AD1651B00DFA033 /* MFSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF76C931AD1651B00DFA033 /* MFSignInViewController.m */; };
-		AAF76C961AD1651B00DFA033 /* MFSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAF76C941AD1651B00DFA033 /* MFSignInViewController.xib */; };
+		AAF76C951AD1651B00DFA033 /* MFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF76C931AD1651B00DFA033 /* MFWebViewController.m */; };
+		AAF76C961AD1651B00DFA033 /* MFWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAF76C941AD1651B00DFA033 /* MFWebViewController.xib */; };
+		AAF76C9A1AD1B93700DFA033 /* MFWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF76C981AD1B93700DFA033 /* MFWelcomeViewController.m */; };
+		AAF76C9B1AD1B93700DFA033 /* MFWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAF76C991AD1B93700DFA033 /* MFWelcomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,9 +95,12 @@
 		AAF76C7E1AD151D800DFA033 /* OMGUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGUserAgent.h; sourceTree = "<group>"; };
 		AAF76C7F1AD151D800DFA033 /* OMGUserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGUserAgent.m; sourceTree = "<group>"; };
 		AAF76C801AD151D800DFA033 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
-		AAF76C921AD1651B00DFA033 /* MFSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSignInViewController.h; sourceTree = "<group>"; };
-		AAF76C931AD1651B00DFA033 /* MFSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSignInViewController.m; sourceTree = "<group>"; };
-		AAF76C941AD1651B00DFA033 /* MFSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFSignInViewController.xib; sourceTree = "<group>"; };
+		AAF76C921AD1651B00DFA033 /* MFWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFWebViewController.h; sourceTree = "<group>"; };
+		AAF76C931AD1651B00DFA033 /* MFWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFWebViewController.m; sourceTree = "<group>"; };
+		AAF76C941AD1651B00DFA033 /* MFWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFWebViewController.xib; sourceTree = "<group>"; };
+		AAF76C971AD1B93700DFA033 /* MFWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFWelcomeViewController.h; sourceTree = "<group>"; };
+		AAF76C981AD1B93700DFA033 /* MFWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFWelcomeViewController.m; sourceTree = "<group>"; };
+		AAF76C991AD1B93700DFA033 /* MFWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFWelcomeViewController.xib; sourceTree = "<group>"; };
 		AE70CFF0B57293A32C57C38A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE678E0B15B1985857D79D70 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,9 +181,12 @@
 				AAF76C131AD0AD6800DFA033 /* MFAPIClient.m */,
 				AAF76C0F1AD0994700DFA033 /* MFAuthViewController.h */,
 				AAF76C101AD0994700DFA033 /* MFAuthViewController.m */,
-				AAF76C921AD1651B00DFA033 /* MFSignInViewController.h */,
-				AAF76C931AD1651B00DFA033 /* MFSignInViewController.m */,
-				AAF76C941AD1651B00DFA033 /* MFSignInViewController.xib */,
+				AAF76C971AD1B93700DFA033 /* MFWelcomeViewController.h */,
+				AAF76C981AD1B93700DFA033 /* MFWelcomeViewController.m */,
+				AAF76C991AD1B93700DFA033 /* MFWelcomeViewController.xib */,
+				AAF76C921AD1651B00DFA033 /* MFWebViewController.h */,
+				AAF76C931AD1651B00DFA033 /* MFWebViewController.m */,
+				AAF76C941AD1651B00DFA033 /* MFWebViewController.xib */,
 				AA84444F1ACFED89004F0D0E /* Main.storyboard */,
 				AA8444521ACFED89004F0D0E /* Images.xcassets */,
 				AA8444541ACFED89004F0D0E /* LaunchScreen.xib */,
@@ -336,7 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8444511ACFED89004F0D0E /* Main.storyboard in Resources */,
-				AAF76C961AD1651B00DFA033 /* MFSignInViewController.xib in Resources */,
+				AAF76C961AD1651B00DFA033 /* MFWebViewController.xib in Resources */,
+				AAF76C9B1AD1B93700DFA033 /* MFWelcomeViewController.xib in Resources */,
 				AA8444561ACFED89004F0D0E /* LaunchScreen.xib in Resources */,
 				AA8444531ACFED89004F0D0E /* Images.xcassets in Resources */,
 			);
@@ -393,10 +402,11 @@
 				AAF76C141AD0AD6800DFA033 /* MFAPIClient.m in Sources */,
 				AAF76C7C1AD14A0300DFA033 /* TDOAuth.m in Sources */,
 				AA84444B1ACFED89004F0D0E /* motif.xcdatamodeld in Sources */,
+				AAF76C9A1AD1B93700DFA033 /* MFWelcomeViewController.m in Sources */,
 				AA8444481ACFED89004F0D0E /* AppDelegate.m in Sources */,
 				AAF76C111AD0994700DFA033 /* MFAuthViewController.m in Sources */,
 				AAF76C821AD151D800DFA033 /* README.markdown in Sources */,
-				AAF76C951AD1651B00DFA033 /* MFSignInViewController.m in Sources */,
+				AAF76C951AD1651B00DFA033 /* MFWebViewController.m in Sources */,
 				AA8444451ACFED89004F0D0E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

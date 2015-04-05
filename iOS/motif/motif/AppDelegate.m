@@ -11,8 +11,12 @@
 #import <Parse/Parse.h>
 #import "MFAuthViewController.h"
 #import "MFAPIClient.h"
+#import "MFWelcomeViewController.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) MFAPIClient *apiClient;
+@property (nonatomic, strong) UINavigationController *navController;
 
 @end
 
@@ -23,10 +27,10 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MFAuthViewController *authViewController = (MFAuthViewController *)[storyboard instantiateInitialViewController];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:authViewController];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:authViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = navController;
+    self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     
     // Parse Registration
@@ -69,6 +73,18 @@
 
 - (void)handleRemoteNotificationWithDictionary:(NSDictionary *)userInfo {
     NSLog(@"userInfo: %@", userInfo);
+    
+    NSString *token = [userInfo objectForKey:@"url"];
+    if ([token isKindOfClass:NSString.class]) {
+        NSRange range = [token rangeOfString:@"="];
+        NSUInteger startLocation = range.location + 1;
+        NSString *substring = [token substringFromIndex:startLocation];
+        token = substring;
+    }
+    
+    MFAPIClient *apiClient = self.apiClient;
+    apiClient.tokenKey = token;
+    
     NSDictionary *aps = [userInfo objectForKey:@"aps"];
     if (!userInfo || ![aps isKindOfClass:[NSDictionary class]]) {
         return;
@@ -101,12 +117,30 @@
 
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    // Open Motif with custom app url scheme
     
     NSLog(@"url: %@", url);
+    
+    // TODO: assuming the url is always opened from login web view
+    self.apiClient = self.apiClient;
+    
+    MFWelcomeViewController *welcomeVC = [[MFWelcomeViewController alloc] init];
+    
+    welcomeVC.navigationItem.hidesBackButton = YES;
+    [self.navController pushViewController:welcomeVC animated:YES];
+    
+    [self.apiClient getUserInformationWithToken:self.apiClient.tokenKey];
     
     return YES;
 }
 
+
+- (MFAPIClient *)apiClient {
+    if (!_apiClient) {
+        _apiClient = [MFAPIClient sharedClient];
+    }
+    return _apiClient;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

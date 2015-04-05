@@ -1,5 +1,5 @@
 //
-//  MFSignInViewController.h
+//  MFWelcomeViewController.h
 //  motif
 //
 //  Created by Si Te Feng on 4/5/15.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MFSignInViewController : UIViewController
+#import "MFAPIClient.h"
+
+@interface MFWelcomeViewController : UIViewController <MFAPIClientDelegate>
 
 @end

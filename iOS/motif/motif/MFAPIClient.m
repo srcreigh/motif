@@ -25,6 +25,7 @@ static NSString *const MFPassword = @"Site940909";
 
 static NSString *const MFBaseURL = @"api.context.io";
 static NSString *const MFNewUserAndAccountPOSTURL = @"/lite/connect_tokens";
+static NSString *const MFGetUserInfoFromTokenURL = @"/lite/connect_tokens/";
 static NSString *const MFOAuthProvidersPOSTURL = @"/2.0/oauth_providers";
 
 static NSString *const MFCredentialIdentifier = @"MFCredentialIdentifier";
@@ -93,10 +94,34 @@ static NSString *const MFCredentialIdentifier = @"MFCredentialIdentifier";
 }
 
 
-
-
+- (void)getUserInformationWithToken:(NSString *)token {
+    NSString *fullPath = [MFGetUserInfoFromTokenURL stringByAppendingString:token];
+    
+    NSURLRequest *request = [TDOAuth URLRequestForPath:fullPath GETParameters:nil scheme:@"https" host:MFBaseURL consumerKey:MFConsumerKey consumerSecret:MFConsumerSecret accessToken:nil tokenSecret:nil];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        BOOL success = YES;
+        if (connectionError) {
+            NSLog(@"Error: %@", connectionError.localizedDescription);
+            success = NO;
+        }
+        
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSDictionary *userDict = [dict objectForKey:@"user"];
+        if ([userDict isKindOfClass:NSDictionary.class]) {
+            NSString *userId = [userDict objectForKey:@"id"];
+            if ([userId isKindOfClass:NSString.class]) {
+                [self.delegate apiClient:self getUserInfoWithSuccess:success userId:userId];
+            }
+        }
+        
+    }];
+}
 
 
 
 
 @end
+
+
+

@@ -9,7 +9,7 @@
 #import "MFAuthViewController.h"
 
 #import "MFAPIClient.h"
-#import "MFSignInViewController.h"
+#import "MFWebViewController.h"
 
 @interface MFAuthViewController () <MFAPIClientDelegate>
 
@@ -94,10 +94,9 @@
     
     CIOEmailProviderType providerType = (CIOEmailProviderType)((UIButton *)sender).tag;
     self.selectedProviderType = providerType;
-    
     [self.apiClient registerNewUserAndAccount];
-
 }
+
 
 #pragma mark - 
 
