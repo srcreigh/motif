@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.parse.ParseInstallation;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -19,7 +21,10 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
 
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
 
@@ -120,8 +125,7 @@ public class AuthActivity extends Activity implements View.OnClickListener {
                     HttpGet req = new HttpGet(URL);
                     consumer.sign(req);
                     HttpResponse resp = client.execute(req);
-                    Log.i(TAG, "resp.getEntity(): " +
-                            convertStreamToString(resp.getEntity().getContent()));
+                    onAuthFinished(convertStreamToString(resp.getEntity().getContent()));
                 } catch (Exception e) {
                     Log.i(TAG, "exception", e);
                 }
@@ -142,5 +146,16 @@ public class AuthActivity extends Activity implements View.OnClickListener {
             intent.setData(Uri.parse(mBrowserRedirectUrl));
             startActivity(intent);
         }
+    }
+
+    private void onAuthFinished(String resp) {
+        try {
+            JSONObject object = new JSONObject(resp);
+            JSONObject user = object.getJSONObject("user");
+            ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+            installation.put("user_id", user.getString("id"));
+            installation.saveInBackground();
+
+        } catch (JSONException ignored) {}
     }
 }
