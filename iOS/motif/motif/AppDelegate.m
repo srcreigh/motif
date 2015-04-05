@@ -42,6 +42,13 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    
+    // Push Notification Handling
+    NSDictionary *remoteNotificationDictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (remoteNotificationDictionary) {
+        [self handleRemoteNotificationWithDictionary:remoteNotificationDictionary];
+    }
+    
     return YES;
 }
 
@@ -56,6 +63,40 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
     
+    [self handleRemoteNotificationWithDictionary:userInfo];
+}
+
+
+- (void)handleRemoteNotificationWithDictionary:(NSDictionary *)userInfo {
+    NSLog(@"userInfo: %@", userInfo);
+    NSDictionary *aps = [userInfo objectForKey:@"aps"];
+    if (!userInfo || ![aps isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    
+    id alertContent = [aps objectForKey:@"alert"];
+    
+    if ([alertContent isKindOfClass:[NSString class]]) {
+        [self openURLWithString:alertContent];
+    } else if ([alertContent isKindOfClass:[NSDictionary class]]) {
+        NSString *body = [(NSDictionary *)alertContent objectForKey:@"body"];
+        [self openURLWithString:body];
+    }
+    
+    
+    id link = [userInfo objectForKey:@"link"];
+    if (link && [link isKindOfClass:[NSString class]]) {
+        [self openURLWithString:(NSString *)link];
+    }
+
+}
+
+
+- (void)openURLWithString:(NSString *)string {
+    NSURL *linkURL = [NSURL URLWithString:string];
+    if (linkURL) {
+        [[UIApplication sharedApplication] openURL:linkURL];
+    }
 }
 
 
