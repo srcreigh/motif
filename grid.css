@@ -43,7 +43,7 @@ h4 {
 #name{
   font-size:400%;
   color: blue;
-  padding-right: 10px;
+  padding-right: 15px;
 }
 .content {
   padding-top: 15px;
@@ -70,7 +70,7 @@ h4 {
   border: 5px solid rgba(65,105,225,1);
 }
 .btn-primary{
-  padding: 18px 50px;
+  padding: 25px 50px;
     font-size: 16px;
     line-height: normal;
     -webkit-border-radius: 8px;
