@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 
 #import <Parse/Parse.h>
-#import "CIOAuthViewController.h"
+#import "MFAuthViewController.h"
+#import "MFAPIClient.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    CIOAuthViewController *authViewController = (CIOAuthViewController *)[storyboard instantiateInitialViewController];
+    MFAuthViewController *authViewController = (MFAuthViewController *)[storyboard instantiateInitialViewController];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:authViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -61,10 +62,6 @@
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     
     NSLog(@"url: %@", url);
-    
-    if ([url.scheme isEqual:@"motif://"]) {
-        NSLog(@"Scheme Matched");
-    }
     
     return YES;
 }

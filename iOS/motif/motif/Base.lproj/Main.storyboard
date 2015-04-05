@@ -8,7 +8,7 @@
         <!--Auth View Controller-->
         <scene sceneID="PGO-hI-cKN">
             <objects>
-                <viewController id="t3U-cs-EYv" customClass="CIOAuthViewController" sceneMemberID="viewController">
+                <viewController id="t3U-cs-EYv" customClass="MFAuthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t8P-Wi-Xq1"/>
                         <viewControllerLayoutGuide type="bottom" id="sSM-68-yOd"/>
@@ -34,17 +34,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPJ-5y-Lgf">
-                                <rect key="frame" x="279.5" y="407" width="40" height="34"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Go8-id-TIo">
-                                <rect key="frame" x="275.5" y="456" width="50" height="34"/>
+                                <rect key="frame" x="175.5" y="456" width="250" height="34"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="hostButtonPressed:" destination="t3U-cs-EYv" eventType="touchUpInside" id="7Wk-eG-KYZ"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0sj-IA-KtB">
                                 <rect key="frame" x="16" y="539" width="568" height="53"/>
@@ -57,15 +54,24 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUh-zx-XHV">
-                                <rect key="frame" x="275.5" y="358" width="50" height="34"/>
+                                <rect key="frame" x="175.5" y="358" width="250" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="tVV-K0-l9c"/>
+                                    <constraint firstAttribute="width" constant="250" id="tVV-K0-l9c"/>
                                 </constraints>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="hostButtonPressed:" destination="t3U-cs-EYv" eventType="touchUpInside" id="lyQ-Dh-4TV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPJ-5y-Lgf">
+                                <rect key="frame" x="180" y="407" width="240" height="34"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="hostButtonPressed:" destination="t3U-cs-EYv" eventType="touchUpInside" id="SlM-S3-JpN"/>
                                 </connections>
                             </button>
                         </subviews>

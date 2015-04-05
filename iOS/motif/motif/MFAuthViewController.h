@@ -8,15 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MFAPIClient.h"
 
 @protocol CIOAuthViewController <NSObject>
 - (void)userCompletedLogin;
 - (void)userCancelledLogin;
 @end
 
-@interface CIOAuthViewController : UIViewController <UIWebViewDelegate>
-
-@property (nonatomic, assign) NSObject<CIOAuthViewController> *delegate;
+@interface MFAuthViewController : UIViewController <MFAPIClientDelegate>
 
 
 @end
