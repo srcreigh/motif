@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t3U-cs-EYv">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="PGO-hI-cKN">
+            <objects>
+                <viewController id="t3U-cs-EYv" customClass="CIOAuthViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t8P-Wi-Xq1"/>
+                        <viewControllerLayoutGuide type="bottom" id="sSM-68-yOd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jBM-YP-p8g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6on-ht-izn">
+                                <rect key="frame" x="197" y="59" width="206" height="206"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="206" id="P55-2E-fLi"/>
+                                    <constraint firstAttribute="width" constant="206" id="aou-vZ-iZI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motif" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hG-9w-AxR">
+                                <rect key="frame" x="233" y="280" width="135" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="3GL-Jh-cwZ"/>
+                                    <constraint firstAttribute="width" constant="135" id="Ys5-qt-peY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPJ-5y-Lgf">
+                                <rect key="frame" x="279.5" y="407" width="40" height="34"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Go8-id-TIo">
+                                <rect key="frame" x="275.5" y="456" width="50" height="34"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0sj-IA-KtB">
+                                <rect key="frame" x="16" y="539" width="568" height="53"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="UAE-Qe-TxW"/>
+                                </constraints>
+                                <color key="textColor" red="0.54778251262626265" green="0.015231434655576564" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUh-zx-XHV">
+                                <rect key="frame" x="275.5" y="358" width="50" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="tVV-K0-l9c"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="hostButtonPressed:" destination="t3U-cs-EYv" eventType="touchUpInside" id="lyQ-Dh-4TV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725996050575622" green="0.93347405579209519" blue="0.96464646464646464" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="0sj-IA-KtB" firstAttribute="trailing" secondItem="jBM-YP-p8g" secondAttribute="trailingMargin" id="C5u-c0-F4U"/>
+                            <constraint firstItem="Go8-id-TIo" firstAttribute="top" secondItem="FPJ-5y-Lgf" secondAttribute="bottom" constant="15" id="Cf7-fr-YPI"/>
+                            <constraint firstItem="ZUh-zx-XHV" firstAttribute="width" secondItem="Go8-id-TIo" secondAttribute="width" id="IMb-h4-qcD"/>
+                            <constraint firstItem="sSM-68-yOd" firstAttribute="top" secondItem="0sj-IA-KtB" secondAttribute="bottom" constant="8" id="Kfu-22-nYV"/>
+                            <constraint firstItem="0sj-IA-KtB" firstAttribute="leading" secondItem="jBM-YP-p8g" secondAttribute="leadingMargin" id="NdA-GS-KXh"/>
+                            <constraint firstItem="ZUh-zx-XHV" firstAttribute="top" secondItem="3hG-9w-AxR" secondAttribute="bottom" constant="39" id="OjS-NS-cf2"/>
+                            <constraint firstAttribute="centerX" secondItem="3hG-9w-AxR" secondAttribute="centerX" id="OxD-Pg-L8O"/>
+                            <constraint firstItem="ZUh-zx-XHV" firstAttribute="width" secondItem="FPJ-5y-Lgf" secondAttribute="width" constant="10" id="YcR-Q3-GdV"/>
+                            <constraint firstAttribute="centerX" secondItem="FPJ-5y-Lgf" secondAttribute="centerX" id="bOY-QF-fXL"/>
+                            <constraint firstAttribute="centerX" secondItem="ZUh-zx-XHV" secondAttribute="centerX" id="dzG-uy-NNX"/>
+                            <constraint firstItem="6on-ht-izn" firstAttribute="top" secondItem="t8P-Wi-Xq1" secondAttribute="bottom" constant="39" id="fb7-GK-hfN"/>
+                            <constraint firstItem="FPJ-5y-Lgf" firstAttribute="top" secondItem="ZUh-zx-XHV" secondAttribute="bottom" constant="15" id="hYJ-px-Tan"/>
+                            <constraint firstAttribute="centerX" secondItem="6on-ht-izn" secondAttribute="centerX" id="trm-Bc-wlV"/>
+                            <constraint firstItem="3hG-9w-AxR" firstAttribute="top" secondItem="6on-ht-izn" secondAttribute="bottom" constant="15" id="wYI-fw-WmI"/>
+                            <constraint firstAttribute="centerX" secondItem="Go8-id-TIo" secondAttribute="centerX" id="xgR-Rs-ch4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aolButton" destination="Go8-id-TIo" id="r1n-WX-AtP"/>
+                        <outlet property="gmailButton" destination="ZUh-zx-XHV" id="cj8-VB-8oz"/>
+                        <outlet property="instructionsTextView" destination="0sj-IA-KtB" id="KaJ-Xc-nA8"/>
+                        <outlet property="yahooButton" destination="FPJ-5y-Lgf" id="iVA-Uw-ZCm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UCK-3X-5dR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="267" y="-107"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="appLogo" width="496" height="496"/>
+    </resources>
+</document>
