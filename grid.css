@@ -15,10 +15,6 @@ h4 {
 #newlogo{
   width: 150px;
   height: 150px;
-  border:none !important;
-  text-decoration:underline;
-  overflow=hidden;
-  background-color:transparent;
 }
 #appstore{
   width: 150px;
