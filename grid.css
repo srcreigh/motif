@@ -58,13 +58,13 @@ font-size:400%;
   padding-bottom: 15px;
   background-color: #fff;
   background-color: rgba(255,255,255,.95);
-  border: 6px solid #ff6600;
+  border: 5px solid #ff6600;
   border: 15px solid rgba(255,102,0,1);
-  height: 290px;
+  height: 295px;
   border-radius: 20px;
 }
 #mce-EMAIL{
-  border:7px solid rgba(65,105,225,1);
+  border:5px solid rgba(65,105,225,1);
 }
 .btn-primary{
   padding: 18px 28px;
