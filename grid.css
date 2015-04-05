@@ -15,6 +15,10 @@ h4 {
 #newlogo{
   width: 150px;
   height: 150px;
+  border:none !important;
+  text-decoration:underline;
+  overflow=hidden;
+  background-color:transparent;
 }
 #appstore{
   width: 150px;
@@ -59,13 +63,13 @@ font-size:400%;
   background-color: #fff;
   background-color: rgba(255,255,255,.95);
   border: 4px solid #ff6600;
-  border: 4px solid rgba(255,102,0,1);
+  border: 6px solid rgba(255,102,0,1);
   height: 305px;
   border-radius: 20px;
 }
 #mce-EMAIL{
   border: 5px solid #4169E1;
-  border:5px solid rgba(65,105,225,1);
+  border: 5px solid rgba(65,105,225,1);
 }
 .btn-primary{
   padding: 18px 28px;
