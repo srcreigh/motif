@@ -58,8 +58,8 @@ font-size:400%;
   padding-bottom: 15px;
   background-color: #fff;
   background-color: rgba(255,255,255,.95);
-  border: 5px solid #ff6600;
-  border: 15px solid rgba(255,102,0,1);
+  border: 4px solid #ff6600;
+  border: 4px solid rgba(255,102,0,1);
   height: 305px;
   border-radius: 20px;
 }
