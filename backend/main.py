@@ -20,7 +20,7 @@ def create_user(user_id):
     }
     params = urllib.urlencode(params)
     url = 'https://api.context.io/lite/users/%s/webhooks' % user_id
-    return requests.post(url, auth=oauth(), data=params)
+    return requests.post(url, auth=oauth(), data=params).text
 
 @app.route('/user/<user_id>/on_fail', methods=['POST'])
 def webhook_fail(user_id):
